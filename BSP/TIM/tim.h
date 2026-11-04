@@ -2,6 +2,5 @@
 #define _TIM_H
 
 #include "./SYSTEM/sys/sys.h"
-
-void tim_init(uint16_t arr);
+void  tim_init(int ccr);
 #endif
