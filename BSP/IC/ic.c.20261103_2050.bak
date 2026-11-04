@@ -1,0 +1,102 @@
+#include "./BSP/IC/ic.h"
+CAN_HandleTypeDef can;
+//id=0x123, ide,0,fifo0
+void can_init()
+{
+
+	can.Instance=CAN1;
+	can.Init.AutoBusOff =DISABLE;
+	can.Init.AutoRetransmission =ENABLE;
+	can.Init.Mode=CAN_MODE_LOOPBACK ;
+	can.Init.Prescaler =71;
+	can.Init.AutoWakeUp =ENABLE;
+	can.Init.TimeSeg1 =10;
+	can.Init.TimeSeg2 =10;
+	can.Init.ReceiveFifoLocked =DISABLE;
+	can.Init.SyncJumpWidth =CAN_SJW_1TQ;
+	can.Init.TimeTriggeredMode =ENABLE;
+	can.Init.TransmitFifoPriority =DISABLE;
+	
+HAL_CAN_Init(&can);
+	CAN_FilterTypeDef filter;
+	filter.FilterActivation =ENABLE;
+	filter.FilterBank =0;
+	filter.FilterFIFOAssignment =CAN_FilterFIFO0 ;
+
+	filter.FilterIdLow =0x123<<5;
+	
+	filter.FilterMaskIdLow =0;
+	filter.FilterMode = CAN_FILTERMODE_IDMASK   ;
+	filter.FilterScale =CAN_FILTERSCALE_16BIT ;
+	filter.SlaveStartFilterBank =14;
+	filter.FilterIdHigh     = (0x7FF << 5) | 0x10;  // ??????????
+filter.FilterMaskIdHigh = 0xFFFF;               // ???????
+	HAL_CAN_ConfigFilter (&can,&filter);
+	HAL_CAN_Start (&can);
+
+}
+
+//paRX11.TX12
+void HAL_CAN_MspInit(CAN_HandleTypeDef *hcan)
+{
+if(hcan->Instance==CAN1)
+{
+__HAL_RCC_CAN1_CLK_ENABLE();
+__HAL_RCC_GPIOA_CLK_ENABLE ();
+	//PA12----TX
+	GPIO_InitTypeDef gpio;
+	gpio.Mode =GPIO_MODE_AF_PP;
+	gpio.Pin =GPIO_PIN_12;
+	gpio.Pull=GPIO_PULLUP;
+	gpio.Speed=GPIO_SPEED_FREQ_HIGH ;
+	HAL_GPIO_Init(GPIOA,&gpio);
+	gpio.Pin=GPIO_PIN_11;
+	gpio.Mode =GPIO_MODE_AF_INPUT ;
+	HAL_GPIO_Init(GPIOA,&gpio);
+
+}
+
+}
+void can_tx(uint8_t buf[1])
+{
+CAN_TxHeaderTypeDef tx;
+	tx.DLC =1;
+	tx.IDE =CAN_ID_STD ;
+	tx.StdId =0x123;
+buf[0]=1;
+	tx.RTR =CAN_RTR_DATA ;
+	
+uint32_t mail=CAN_TX_MAILBOX0 ;
+HAL_CAN_AddTxMessage (&can,&tx,buf,&mail);
+	
+
+}
+void can_rx(uint8_t huf[1])
+{
+
+	
+	
+	CAN_RxHeaderTypeDef rx;
+	
+	
+	HAL_CAN_GetRxMessage(&can,CAN_RX_FIFO0,&rx,huf); 
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

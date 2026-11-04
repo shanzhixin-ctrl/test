@@ -1,0 +1,120 @@
+{
+    "name": "atk_f103",
+    "target": "LED",
+    "toolchain": "AC5",
+    "toolchainLocation": "C:\\KEIL download\\ARM\\ARMCC",
+    "toolchainCfgFile": "c:\\Users\\Lenovo\\.vscode\\extensions\\cl.eide-3.27.2\\res\\data\\models/arm.v5.model.json",
+    "buildMode": "fast|multhread",
+    "showRepathOnLog": true,
+    "threadNum": 24,
+    "rootDir": "c:\\Users\\Lenovo\\Desktop\\test\\Projects\\MDK-ARM",
+    "dumpPath": "build\\LED",
+    "outDir": "build\\LED",
+    "ram": 65536,
+    "rom": 524288,
+    "incDirs": [
+        "../../Drivers/CMSIS/Device/ST/STM32F1xx/Include",
+        "../../Drivers/STM32F1xx_HAL_Driver/Inc",
+        "../../Drivers/CMSIS/Include",
+        "../../Drivers",
+        "../../User",
+        "../../Middlewares",
+        ".cmsis/include",
+        "RTE/_LED"
+    ],
+    "libDirs": [],
+    "defines": [
+        "USE_HAL_DRIVER",
+        "STM32F103xE"
+    ],
+    "sourceList": [
+        "../../Drivers/BSP/IC/ic.c",
+        "../../Drivers/BSP/LED/led.c",
+        "../../Drivers/BSP/PID/pid.c",
+        "../../Drivers/BSP/UART/usrt.c",
+        "../../Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f103xe.s",
+        "../../Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c",
+        "../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c",
+        "../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c",
+        "../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c",
+        "../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c",
+        "../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c",
+        "../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c",
+        "../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c",
+        "../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c",
+        "../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c",
+        "../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c",
+        "../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_usart.c",
+        "../../Drivers/SYSTEM/delay/delay.c",
+        "../../Drivers/SYSTEM/sys/sys.c",
+        "../../Drivers/SYSTEM/usart/usart.c",
+        "../../User/main.c",
+        "../../User/stm32f1xx_it.c"
+    ],
+    "alwaysInBuildSources": [],
+    "sourceParams": {},
+    "options": {
+        "version": 4,
+        "afterBuildTasks": [],
+        "asm-compiler": {
+            "defines": []
+        },
+        "beforeBuildTasks": [],
+        "c/cpp-compiler": {
+            "CXX_FLAGS": "--diag_suppress=1 --diag_suppress=1295",
+            "C_FLAGS": "--diag_suppress=1 --diag_suppress=1295",
+            "c99-mode": true,
+            "one-elf-section-per-function": true,
+            "optimization": "level-1",
+            "warnings": "all-warnings"
+        },
+        "global": {
+            "output-debug-info": "enable",
+            "use-microLIB": false,
+            "microcontroller-cpu": "cortex-m3",
+            "microcontroller-fpu": "cortex-m3",
+            "microcontroller-float": "cortex-m3",
+            "$arch-extensions": "",
+            "$clang-arch-extensions": "",
+            "$armlink-arch-extensions": ""
+        },
+        "linker": {
+            "$outputTaskExcludes": [
+                ".bin"
+            ],
+            "output-format": "elf",
+            "ro-base": "0x08000000",
+            "rw-base": "0x20000000",
+            "xo-base": "",
+            "link-scatter": [
+                "c:/Users/Lenovo/Desktop/test/Projects/MDK-ARM/build/LED/atk_f103.sct"
+            ]
+        }
+    },
+    "env": {
+        "KEIL_OUTPUT_DIR": "..\\..\\Output",
+        "workspaceFolder": "c:\\Users\\Lenovo\\Desktop\\test\\Projects\\MDK-ARM",
+        "workspaceFolderBasename": "MDK-ARM",
+        "OutDir": "c:\\Users\\Lenovo\\Desktop\\test\\Projects\\MDK-ARM\\build\\LED",
+        "OutDirRoot": "build",
+        "OutDirBase": "build\\LED",
+        "ProjectName": "atk_f103",
+        "ConfigName": "LED",
+        "ProjectRoot": "c:\\Users\\Lenovo\\Desktop\\test\\Projects\\MDK-ARM",
+        "ExecutableName": "c:\\Users\\Lenovo\\Desktop\\test\\Projects\\MDK-ARM\\build\\LED\\atk_f103",
+        "ChipPackDir": "",
+        "ChipName": "",
+        "SYS_Platform": "win32",
+        "SYS_DirSep": "\\",
+        "SYS_DirSeparator": "\\",
+        "SYS_PathSep": ";",
+        "SYS_PathSeparator": ";",
+        "SYS_EOL": "\r\n",
+        "EIDE_BUILDER_DIR": "c:\\Users\\Lenovo\\.vscode\\extensions\\cl.eide-3.27.2\\res\\tools\\win32\\unify_builder",
+        "EIDE_BINARIES_VER": "12.1.1",
+        "EIDE_MSYS": "C:\\Users\\Lenovo\\.eide\\bin\\builder\\msys\\bin",
+        "EIDE_PY3_CMD": "C:\\Users\\Lenovo\\.eide\\bin\\python36\\python3.exe",
+        "ToolchainRoot": "C:\\KEIL download\\ARM\\ARMCC"
+    },
+    "sysPaths": []
+}
