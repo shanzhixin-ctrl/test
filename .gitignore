@@ -1,0 +1,20 @@
+# ---- Keil MDK-ARM 编译产物 / 调试文件 ----
+MDK-ARM/car_promac/
+*.uvguix.*
+*.lst
+*.o
+*.crf
+*.d
+*.dep
+*.lnp
+*.map
+*.axf
+*.hex
+*.htm
+*.iex
+*.scvd
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+Thumbs.db
+desktop.ini
